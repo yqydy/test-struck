@@ -29,74 +29,59 @@
 
 ---
 
-## 快速安装（DSH skill）
+## 零安装使用（推荐）
 
-### 安装到当前用户（所有项目可用）
+本仓库**不需要安装**，不注册任何 skill，也不依赖 DSH。所有内容都是普通文件：
 
-```powershell
-cd ai-native-project-kit
-powershell -ExecutionPolicy Bypass -File .\scripts\install.ps1
-```
+1. 把整个仓库复制到项目里，或放在项目旁边；
+2. 让 agent 先读 `SKILL.md`，再按需要读 `references/`、`knowledge/`、`templates/`、`patterns/`；
+3. 不需要任何服务、数据库或后台进程。
 
-默认安装到：
-
-```text
-%USERPROFILE%\.dsh\skills\ai-native-project-kit
-```
-
-### 安装到当前项目
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\install.ps1 -Project
-```
-
-安装到：
+最直接的调用方式：
 
 ```text
-<当前目录>\.agents\skills\ai-native-project-kit
+请先阅读 F:\path\to\ai-native-project-kit\SKILL.md，
+然后按其中的 M1+M3 流程帮我做一个 AI 工单助手 MVP。
+需要时再读 references/ 和 templates/，最后给我可执行的下一步。
 ```
 
-安装完成后，**新开一个 DSH 会话**即可在 skill 目录看到 `ai-native-project-kit`。当前会话如果还没有刷新，可以新开一轮对话或直接让 agent 读取本仓库的 `SKILL.md`。
+也可以只取其中一部分：
 
-### 手动安装
+- 做架构：复制 `references/01-architecture-playbook.md` + `templates/adr.md` 到项目 `docs/`；
+- 做 Agent：复制 `templates/agent-spec.md` + `templates/eval-plan.md`，参考 `patterns/react_agent.py`；
+- 做 MVP/上线：用 `templates/delivery-checklist.md`；
+- 查三仓内容：直接读 `knowledge/<repo>.md`。
 
-把以下内容复制到 `~/.dsh/skills/ai-native-project-kit/`：
+### 可选：如果你以后想自动加载
 
-```text
-SKILL.md
-references/
-templates/
-LICENSE
-NOTICE.md
-```
-
-其他 agent 环境也可以把 `SKILL.md` + `references/` + `templates/` 复制到对应的 skills 目录（例如 Claude Code 的 `.claude/skills/`）。
+仓库仍保留 `scripts/install.ps1`，可把它复制到 DSH 的 skills 目录或 `.agents/skills/`；**这只是可选项，当前交付不需要执行，也不影响阅读和项目使用。**
 
 ---
 
 ## 怎么用
 
-安装后，直接提项目需求即可；也可以显式指定 `/ai-native-project-kit`，或用中文描述：
+不需要安装或注册。把下面的文件路径给任意 coding agent，或直接把仓库放进项目：
 
 ```text
-用 ai-native-project-kit 帮我设计一个营销诊断系统：
+请先读 ai-native-project-kit/SKILL.md，再帮我设计一个营销诊断系统：
 先做架构判断，再决定要不要 Agent，最后给 MVP 切片。
 ```
 
 ```text
-用 ai-native-project-kit 审查这个方案，按 blocker / important / nit 输出。
+请按 ai-native-project-kit/SKILL.md 审查这个方案，
+按 blocker / important / nit 输出，必要时引用 knowledge/ 里的章节。
 ```
 
 ```text
-用 ai-native-project-kit 把这个 Demo 推到可上线：
-按交付清单找缺口，给最小修复顺序。
+请用 ai-native-project-kit 把这个 Demo 推到可上线：
+按 templates/delivery-checklist.md 找缺口，给最小修复顺序。
 ```
 
 ```text
-用 ai-native-project-kit 给这个客服 Agent 写 spec + eval plan。
+请用 ai-native-project-kit 给这个客服 Agent 写 spec + eval plan。
 ```
 
-Skill 会先判断模式（M0 快速任务 / M1 MVP / M2 生产 / M3 Agent / M4 评审 / M5 架构设计），再只读需要的参考文件。
+`SKILL.md` 会先判断模式（M0 快速任务 / M1 MVP / M2 生产 / M3 Agent / M4 评审 / M5 架构设计），再只读需要的参考文件。
 
 ---
 

@@ -184,10 +184,10 @@ node scripts/validate.mjs
 - 章节笔记、参考手册、模板、pattern、示例是否齐全；
 - 相对链接是否存在。
 
-也可以跑完整检查（含 Python 参考代码语法）：
+也可以单独检查 Python 参考代码语法（需要 Python）：
 
 ```bash
-npm run check
+npm run check:patterns
 ```
 
 从 `knowledge/raw/*.json` 重新生成章节笔记：

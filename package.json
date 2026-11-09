@@ -8,7 +8,8 @@
     "validate": "node scripts/validate.mjs",
     "install:skill": "powershell -ExecutionPolicy Bypass -File scripts/install.ps1",
     "knowledge": "node scripts/build-knowledge.mjs",
-    "check": "node scripts/validate.mjs && python -m py_compile patterns/react_agent.py patterns/rag_pipeline.py patterns/eval_runner.py"
+    "check": "node scripts/validate.mjs",
+    "check:patterns": "python -m py_compile patterns/react_agent.py patterns/rag_pipeline.py patterns/eval_runner.py"
   },
   "license": "CC-BY-NC-SA-4.0"
 }

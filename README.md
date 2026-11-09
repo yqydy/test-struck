@@ -1,5 +1,6 @@
 # AI Native Project Kit
 
+> **test-struck** · Agent 学习 + 架构项目仓库  
 > 把 [Awesome-Architecture](https://github.com/study8677/awesome-architecture)、[Hello-Agents](https://github.com/datawhalechina/hello-agents)、[Easy-Vibe](https://github.com/datawhalechina/easy-vibe) 三个仓库炼成一套**做项目时直接能用的 skill / 作战手册**。
 
 不是只给一个 `SKILL.md`：仓库里保留了 **114 条三仓章节/条目笔记**、6 份项目 playbook、6 个可复制模板、2 个完整示例，以及可直接运行/改造的 ReAct、RAG、Eval 参考代码。

@@ -1,0 +1,14 @@
+{
+  "name": "ai-native-project-kit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Architecture-first, agent-aware, delivery-oriented project skill distilled from Awesome-Architecture, Hello-Agents, and Easy-Vibe.",
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "install:skill": "powershell -ExecutionPolicy Bypass -File scripts/install.ps1",
+    "knowledge": "node scripts/build-knowledge.mjs",
+    "check": "node scripts/validate.mjs && python -m py_compile patterns/react_agent.py patterns/rag_pipeline.py patterns/eval_runner.py"
+  },
+  "license": "CC-BY-NC-SA-4.0"
+}
